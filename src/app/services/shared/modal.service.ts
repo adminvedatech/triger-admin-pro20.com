@@ -1,5 +1,7 @@
 import { Injectable } from "@angular/core";
+import { FormTaskService } from '../form-services/form-task.service';
 import { FormUserService } from "../form-services/form-user.service";
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: "root",
@@ -11,10 +13,11 @@ export class ModalService {
   modalProducto = "ocultar";
   modalUser = "ocultar";
   modalUserCard = "ocultar";
+  modalTask="ocultar";
   tipo: string = "";
   url: string = "";
 
-  constructor(public _formUser: FormUserService) {}
+  constructor(public _formUser: FormTaskService) {}
 
   mostrarModalUpload(tipo: string, url: string) {
     this.modalUpload = "";
@@ -64,7 +67,7 @@ export class ModalService {
   }
       cerrarModalUserRegister() {
         this.modalUser = "ocultar";
-        this._formUser.userId = false;
+        this._formUser.taskId = false;
         this._formUser.clearForm();
       }
 
@@ -80,6 +83,22 @@ export class ModalService {
   cerrarModalUserCard(){
     this.modalUserCard = 'ocultar';
     this._formUser.clearForm();
+  }
+
+  mostrarModalTask() {
+
+    this.modalTask = "";
+    // this.tipo = tipo;
+    // this.url = url;
+    // console.log("tipo", this.tipo);
+    // console.log("url", this.url);
+  }
+
+  cerrarModalTask(){
+    console.log('OCULATAR TASK MODAL');
+    this.modalTask = "ocultar";
+    // this._formUser.clearForm();
+    console.log('OCULATAR TASK MODAL', this.modalTask);
   }
 
 }

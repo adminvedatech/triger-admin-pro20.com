@@ -1,11 +1,10 @@
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../services/auth/auth.guard';
-import { PagesComponent } from './pages.component';
 import { BancosComponent } from './bancos/bancos.component';
-import { UsuariosComponent } from './usuarios/usuarios.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
 import { MovimientosComponent } from './bancos/movimientos/movimientos.component';
 import { ListaUsuariosComponent } from './usuarios/lista-usuarios/lista-usuarios.component';
+import { TaskListComponent } from './task/task-list/task-list.component';
 
 
 const pagesRoutes: Routes = [
@@ -16,9 +15,15 @@ const pagesRoutes: Routes = [
 
   },
   {canActivate:[AuthGuard],
+    path: 'tareas',
+    component: TaskListComponent,
+    data: {titulo: 'Registro de Tareas',expectedRol: ['ROLE_ADMIN','ROLE_VENTAS','ROLE_ALMACEN','ROLE_PRODUCCION','ROLE_COMPARAS','ROLE_CONTA'] }
+
+  },
+  {canActivate:[AuthGuard],
     path: 'usuarios',
     component: ListaUsuariosComponent,
-    data: {titulo: 'Usuarios',expectedRol: ['ROLE_ADMIN','ROLE_VENTAS','ROLE_ALMACEN','ROLE_PRODUCCION','ROLE_COMPARAS','ROLE_CONTA'] }
+    data: {titulo: 'Usuarios Registrados',expectedRol: ['ROLE_ADMIN'] }
 
   },
   {canActivate:[AuthGuard],

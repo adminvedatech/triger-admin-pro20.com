@@ -1,17 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalService } from 'src/app/services/shared/modal.service';
+import { FormTaskService } from 'src/app/services/form-services/form-task.service';
 import { FormUserService } from 'src/app/services/form-services/form-user.service';
+import { ModalService } from 'src/app/services/shared/modal.service';
 declare function init_plugins() : void;
 
 @Component({
-  selector: 'app-modal-user-register',
-  templateUrl: './modal-user-register.component.html',
-  styleUrls: ['./modal-user-register.component.css']
+  selector: 'app-modal-task',
+  templateUrl: './modal-task.component.html',
+  styleUrls: ['./modal-task.component.css']
 })
-export class ModalUserRegisterComponent implements OnInit {
+export class ModalTaskComponent implements OnInit {
 
-  public title: string = 'Registrar nuevo usuario';
-  public titleEdit: string = 'Editar usuario';
+  public title: string = 'Registrar nueva Tarea';
+  public titleEdit: string = 'Editar tarea';
 
   public categories: any[] = [];
   public subcategories: any[]= [];
@@ -26,7 +27,7 @@ export class ModalUserRegisterComponent implements OnInit {
   type: string = '';
 
   constructor(public _modalService: ModalService,
-              public _formUserService: FormUserService) { }
+              public _formTaskService: FormTaskService) { }
 
   ngOnInit(): void {
     init_plugins();

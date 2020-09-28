@@ -8,15 +8,17 @@
 </div>
 <div class="table-responsive">
 
-  <table class="table hover-table">
+  <table class="table table-hover">
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
-        <th scope="col">Puesto</th>
-
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Usuario</th>
+        <th scope="col">Email</th>
+        <th scope="col">Roles</th>
+        <th scope="col">Activo</th>
+        <th scope="col">acciones</th>
       </tr>
     </thead>
     <tbody>
@@ -48,6 +50,10 @@
         <label for="{{u.nombreUsuario}}" class="custom-control-label" ></label>
       </div>
     </td>
+    <td class="text-nowrap">
+      <a data-toggle="tooltip" (click)="edit(u)" data-original-title="Edit"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+      <a href="#" data-toggle="tooltip" data-original-title="Close"> <i class="fa fa-close text-danger"></i> </a>
+  </td>
    </tr>
 
   </tbody>

@@ -19,6 +19,8 @@ import { UserComponent } from './user/user.component';
 import {AuthSessionService} from './services/auth/auth-session.service';
 import { LoginSessionComponent } from './login-session/login-session.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ModalTaskComponent } from './modals/modal-task/modal-task.component';
+import { FormTaskComponent } from './modals/modal-task/form-task/form-task.component';
 
 
 @NgModule({

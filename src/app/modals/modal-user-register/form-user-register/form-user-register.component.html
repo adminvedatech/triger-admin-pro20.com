@@ -1,3 +1,4 @@
+
 <div class="card">
   <div class="card-body">
     <!-- <h4 class="card-title">Sample Form with the Icons</h4> -->
@@ -127,8 +128,10 @@
 </div> -->
 
 
-<button type="submit" (click)="_formUser.onSubmit()"
+<button type="submit" (click)="_formUser.onSubmit()" *ngIf="!this._formUser.userId"
   class="btn btn-info waves-effect waves-light m-r-10" [disabled]="_formUser.form.invalid">Enviar</button>
+  <button type="submit" (click)="_formUser.onEdit()" *ngIf="this._formUser.userId"
+  class="btn btn-success waves-effect waves-light m-r-10" [disabled]="_formUser.form.invalid" >Actualizar</button>
 
 <button type="button" (click)="_formUser.clearForm()" class="btn btn-red waves-effect waves-light">Borrar Formulario</button>
 </form>

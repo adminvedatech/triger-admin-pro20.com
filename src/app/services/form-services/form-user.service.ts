@@ -68,12 +68,13 @@ export class FormUserService {
     this.form.get('nombre')!.setValue(user.nombre);
     this.form.get('apellido')!.setValue(user.apellido);
     this.form.get('nombreUsuario')!.setValue(user.nombreUsuario);
-    this.form.get('password')!.setValue(user.password);
+    this.form.get('password')!.setValue('$QV<&v6E<eBTFZ]Q');
+    this.form.get('passwordConfirm')!.setValue('$QV<&v6E<eBTFZ]Q');
     this.form.get('email')!.setValue(user.email);
     this.form.get('enabled')!.setValue(user.enabled);
-    this.form.get('roles')!.setValue(user.roles);
+    // this.form.get('roles')!.setValue(user.roles);
     // this.form.get('photoName')!.setValue(user.photoName);
-    console.log('FORM ', this.form.value, user);
+    console.log('FORM EDIT', this.form.value, user);
 
   }
 
@@ -152,6 +153,25 @@ export class FormUserService {
        }
 
     }
+
+    onEdit(){
+      console.log('ON EDIT ', this.form.value);
+      this.form.get('password').setValue('12345');
+
+      this._crud.createObject(this.form.value, 'register/nuevo').subscribe(res => {
+        console.log('Respuesta', res);
+        this.users = res;
+          Swal.fire({
+           icon: 'success',
+           title: 'Nuevo Usuario',
+           text: 'Usuario guardado en la Base de Datos',
+           // footer: '<a href>Why do I have this issue?</a>'
+
+         });
+         this.clearForm();
+        })
+    }
+
 
 
 

@@ -20,7 +20,7 @@ export class CrudService {
 
   constructor(private http: HttpClient) { }
 
-  createObject(createObj: NuevoUsuario, url:string): Observable<NuevoUsuario[]> {
+  createObject(createObj: NuevoUsuario, url:string): Observable<any[]> {
     this.httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
       // url += '?token=' + this.token;
       return this.http.post<NuevoUsuario[]>(`${URL_SERVICIOS}/${url}`, createObj, {headers: this.httpHeaders})
@@ -30,6 +30,17 @@ export class CrudService {
           })
           );
     }
+
+    deleteObject(createObj: NuevoUsuario, url:string): Observable<any[]> {
+      this.httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
+        // url += '?token=' + this.token;
+        return this.http.post<NuevoUsuario[]>(`${URL_SERVICIOS}/${url}`, createObj, {headers: this.httpHeaders})
+            .pipe(
+            tap(() =>  {
+              this._refreshNeeded$.next();
+            })
+        );
+      }
 
   createObject2(createObj: any, url:string): Observable<any> {
 
@@ -67,7 +78,7 @@ export class CrudService {
     return this.http.get<NuevoUsuario>(`${URL_SERVICIOS}/${url}/${username}`,{headers: this.httpHeaders});
   }
 
-  getAllObjects(url:string): Observable<NuevoUsuario[]> {
+  getAllObjects(url:string): Observable<any[]> {
     console.log('GET ALL ACCOUNTS TYPE');
      this.httpHeaders = new HttpHeaders({'Content-Type': 'application/json'});
       return this.http.get<NuevoUsuario[]>(`${URL_SERVICIOS}/${url}`, {headers: this.httpHeaders});

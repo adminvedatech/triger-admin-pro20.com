@@ -9,6 +9,8 @@ import {ModalIconComponent } from '../modals/modal-icon/modal-icon.component';
 import { FormUserRegisterComponent } from '../modals/modal-user-register/form-user-register/form-user-register.component';
 import { ModalUserRegisterComponent } from '../modals/modal-user-register/modal-user-register.component';
 import { ModalUserCardComponent } from '../modals/modal-user-card/modal-user-card.component';
+import { ModalTaskComponent } from '../modals/modal-task/modal-task.component';
+import { FormTaskComponent } from '../modals/modal-task/form-task/form-task.component';
 
 
 
@@ -19,8 +21,10 @@ import { ModalUserCardComponent } from '../modals/modal-user-card/modal-user-car
     HeaderComponent,
     ModalIconComponent,
     ModalUserRegisterComponent,
-    ModalUserCardComponent,
     FormUserRegisterComponent,
+    ModalUserCardComponent,
+    ModalTaskComponent,
+    FormTaskComponent
   ],
   exports:[
     BredcrumbsComponent,
@@ -28,8 +32,10 @@ import { ModalUserCardComponent } from '../modals/modal-user-card/modal-user-car
     HeaderComponent,
     ModalIconComponent,
     ModalUserRegisterComponent,
-    ModalUserCardComponent,
     FormUserRegisterComponent,
+    ModalUserCardComponent,
+    ModalTaskComponent,
+    FormTaskComponent
   ],
 
   imports:[

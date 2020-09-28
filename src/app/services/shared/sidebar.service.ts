@@ -6,6 +6,20 @@ import { Injectable } from "@angular/core";
 export class SidebarService {
   // menu: any[] = [];
 
+  menuTask: any = [
+    {
+      titulo: "Tareas",
+      icono: "mdi mdi-account-multiple",
+      submenu: [
+        { titulo: "Listado de Tareas", url: "/tareas" },
+        // { titulo: "Forma de Usuarios", url: "/form-user-register" },
+        // { titulo: "Lista de Usuarios Registrados", url: "/usuarios-registrados" },
+
+      ],
+    },
+  ];
+
+
   menuUser: any = [
     {
       titulo: "Usuarios",
